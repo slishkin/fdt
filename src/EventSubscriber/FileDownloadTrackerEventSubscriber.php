@@ -41,6 +41,17 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
     }
     // To get the ip address of the system.
     $ip_address = \Drupal::request()->getClientIp();
+    // Сheck the request is internal or external
+    $inside = 0;
+    $outside = 1;
+    if ($pattern = \Drupal::state()->get('mbkk_fdt_pattern', '')){
+      ksm($pattern);
+      ksm($ref);
+      if (preg_match('/' . $pattern . '/', $ref)) {
+        $inside = 1;
+        $outside = 0;
+      }
+    }
     // Get the current user id
     $user_id = \Drupal::currentUser()->id();
     // To save entity for File.
@@ -49,6 +60,9 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
         'entity_type' => 'file',
         'entity_id' => $fid,
         'ip_address' => $ip_address,
+        'referer' => $ref,
+        'inside' => $inside,
+        'outside' => $outside,
         'user_id' => $user_id,
       ]);
       $file_download_entity_file->save();
@@ -58,6 +72,9 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
       'entity_type' => 'page',
       'entity_id' => $eid,
       'ip_address' => $ip_address,
+      'referer' => $ref,
+      'inside' => $inside,
+      'outside' => $outside,
       'user_id' => $user_id,
     ]);
     $file_download_entity_page->save();

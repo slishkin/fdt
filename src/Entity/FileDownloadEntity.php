@@ -41,6 +41,9 @@ use Drupal\user\UserInterface;
  *     "entity_type" = "entity_type",
  *     "entity_id" = "entity_id",
  *     "ip_address" = "ip_address",
+ *     "referer" = "referer",
+ *     "inside" = "inside",
+ *     "outside" = "outside",
  *   },
  * )
  */
@@ -303,6 +306,56 @@ class FileDownloadEntity extends RevisionableContentEntityBase implements FileDo
             ->setDisplayOptions('form', array(
                 'type' => 'string',
                 'weight' => -1,
+            ))
+            ->setDisplayConfigurable('form', TRUE)
+            ->setDisplayConfigurable('view', TRUE);
+
+
+        $fields['referer'] = BaseFieldDefinition::create('string')
+            ->setLabel(t('HTTP Referer'))
+            ->setDescription(t('The address of the page which referred the user agent to the current page'))
+            ->setDisplayOptions('view', array(
+              'label' => 'above',
+              'type' => 'string',
+              'weight' => -1,
+            ))
+            ->setDisplayOptions('form', array(
+              'type' => 'string',
+              'weight' => -1,
+            ))
+            ->setDisplayConfigurable('form', TRUE)
+            ->setDisplayConfigurable('view', TRUE);
+
+
+        $fields['inside'] = BaseFieldDefinition::create('integer')
+            ->setLabel(t('Inside'))
+            ->setDescription(t('Counter for internal requests'))
+            ->setSetting('unsigned', TRUE)
+            ->setDisplayOptions('view', array(
+              'label' => 'above',
+              'type' => 'integer',
+              'weight' => -2,
+            ))
+            ->setDisplayOptions('form', array(
+              'type' => 'integer',
+              'weight' => -2,
+            ))
+            ->setDisplayConfigurable('form', TRUE)
+            ->setDisplayConfigurable('view', TRUE);
+
+
+        $fields['outside'] = BaseFieldDefinition::create('integer')
+            ->setLabel(t('Outside'))
+            ->setDescription(t('Counter for external requests'))
+            ->setSetting('unsigned', TRUE)
+            ->setDisplayOptions('view', array(
+              'label' => 'above',
+              'type' => 'integer',
+              'weight' => -2,
+            ))
+            ->setDisplayOptions('form', array(
+              'type' => 'integer',
+              'weight' => -2,
             ))
             ->setDisplayConfigurable('form', TRUE)
             ->setDisplayConfigurable('view', TRUE);

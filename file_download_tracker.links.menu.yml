@@ -18,3 +18,10 @@ file_download_tracker.page_report:
   parent: file_download_tracker.reports
   route_name: file_download_tracker.page_report
   weight: 100
+
+file_download_tracker.settings:
+  title: 'File Download Tracker'
+  description: 'File Download Tracker'
+  parent: system.admin_config_media
+  route_name: file_download_tracker.settings
+  weight: 100

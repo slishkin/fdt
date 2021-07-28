@@ -11,3 +11,11 @@ file_download_tracker.page_report:
     _title: 'Page Download Reports'
   requirements:
     _permission: 'access all reports'
+
+file_download_tracker.settings:
+  path: '/admin/config/media/file_download_tracker'
+  defaults:
+    _form: '\Drupal\file_download_tracker\Form\FileDownloadTrackerForm'
+    _title: 'File Download Tracker Settings'
+  requirements:
+    _permission: 'administer file download tracker'

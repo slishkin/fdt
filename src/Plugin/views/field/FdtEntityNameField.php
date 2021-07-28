@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\file_download_tracker\Plugin\views\field;
+namespace Drupal\fdt_mbkk\Plugin\views\field;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\field\FieldPluginBase;

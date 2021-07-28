@@ -9,7 +9,7 @@
 /**
  * Implements hook_views_data().
  */
-function file_download_tracker_views_data() {
+function fdt_mbkk_views_data() {
 
   $data['views']['table']['group'] = t('File download tracker');
   $data['views']['table']['join'] = array(

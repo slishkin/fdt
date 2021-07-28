@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\file_download_tracker;
+namespace Drupal\fdt_mbkk;
 
 use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Class FileDownloadTracker.
  *
- * @package Drupal\file_download_tracker.
+ * @package Drupal\fdt_mbkk.
  */
 class FileDownloadTracker extends Event {
   protected $fileID;

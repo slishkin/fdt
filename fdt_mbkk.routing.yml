@@ -1,21 +1,21 @@
-file_download_tracker.file_report:
+fdt_mbkk.file_report:
   path: '/file-download-tracker-file-report'
   defaults:
     _title: 'File Download Reports'
   requirements:
     _permission: 'access all reports'
 
-file_download_tracker.page_report:
+fdt_mbkk.page_report:
   path: '/file-download-tracker-page-report'
   defaults:
     _title: 'Page Download Reports'
   requirements:
     _permission: 'access all reports'
 
-file_download_tracker.settings:
-  path: '/admin/config/media/file_download_tracker'
+fdt_mbkk.settings:
+  path: '/admin/config/media/fdt_mbkk'
   defaults:
-    _form: '\Drupal\file_download_tracker\Form\FileDownloadTrackerForm'
+    _form: '\Drupal\fdt_mbkk\Form\FileDownloadTrackerForm'
     _title: 'File Download Tracker Settings'
   requirements:
     _permission: 'administer file download tracker'

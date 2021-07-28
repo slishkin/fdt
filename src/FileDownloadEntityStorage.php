@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\file_download_tracker;
+namespace Drupal\fdt_mbkk;
 
 use Drupal\Core\Entity\Sql\SqlContentEntityStorage;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\file_download_tracker\Entity\FileDownloadEntityInterface;
+use Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface;
 
 /**
  * Defines the storage handler class for File download entity entities.
@@ -13,7 +13,7 @@ use Drupal\file_download_tracker\Entity\FileDownloadEntityInterface;
  * This extends the base storage class, adding required special handling for
  * File download entity entities.
  *
- * @ingroup file_download_tracker
+ * @ingroup fdt_mbkk
  */
 class FileDownloadEntityStorage extends SqlContentEntityStorage implements FileDownloadEntityStorageInterface {
 

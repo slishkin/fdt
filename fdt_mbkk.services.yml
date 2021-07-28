@@ -1,0 +1,6 @@
+services:
+  fdt_mbkk.event_subscriber_fdt_mbkk:
+    class: Drupal\fdt_mbkk\EventSubscriber\FileDownloadTrackerEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+

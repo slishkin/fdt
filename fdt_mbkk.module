@@ -2,20 +2,20 @@
 
 /**
  * @file
- * Contains file_download_tracker.module.
+ * Contains fdt_mbkk.module.
  */
 
-use Drupal\file_download_tracker\FileDownloadTracker;
+use Drupal\fdt_mbkk\FileDownloadTracker;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Database\Query;
 
 /**
  * Implements hook_help().
  */
-function file_download_tracker_help($route_name, RouteMatchInterface $route_match) {
+function fdt_mbkk_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the file_download_tracker module.
-    case 'help.page.file_download_tracker':
+    // Main module help for the fdt_mbkk module.
+    case 'help.page.fdt_mbkk':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('This module is used to track the files which are getting downloaded from the site.<br>
@@ -31,7 +31,7 @@ function file_download_tracker_help($route_name, RouteMatchInterface $route_matc
 /**
  * Implements hook_file_transfer().
  */
-function file_download_tracker_file_transfer($uri, array $headers) {
+function fdt_mbkk_file_transfer($uri, array $headers) {
     $current_uri = \Drupal::service('path.current')->getPath();
     $exp = explode("/", $current_uri);
     $fid = array($exp[2]);
@@ -47,7 +47,7 @@ function file_download_tracker_file_transfer($uri, array $headers) {
 /*
  * Implements hook_file_download().
  */
-function file_download_tracker_file_download($uri) {
+function fdt_mbkk_file_download($uri) {
   // $uri is of the form private://path/filename.ext
   // Find which managed file this is.
   $query = \Drupal::database()->query('SELECT

@@ -1,27 +1,27 @@
-file_download_tracker.reports:
+fdt_mbkk.reports:
   title: 'File Download Tracker'
   description: 'File Download Tracker'
   parent: system.admin
-  route_name: file_download_tracker.file_report
+  route_name: fdt_mbkk.file_report
   weight: 100
 
-file_download_tracker.file_report:
+fdt_mbkk.file_report:
   title: 'File Download Reports'
   description: 'File Download Reports'
-  parent: file_download_tracker.reports
-  route_name: file_download_tracker.file_report
+  parent: fdt_mbkk.reports
+  route_name: fdt_mbkk.file_report
   weight: 100
 
-file_download_tracker.page_report:
+fdt_mbkk.page_report:
   title: 'Page Download Reports'
   description: 'Page Download Reports'
-  parent: file_download_tracker.reports
-  route_name: file_download_tracker.page_report
+  parent: fdt_mbkk.reports
+  route_name: fdt_mbkk.page_report
   weight: 100
 
-file_download_tracker.settings:
+fdt_mbkk.settings:
   title: 'File Download Tracker'
   description: 'File Download Tracker'
   parent: system.admin_config_media
-  route_name: file_download_tracker.settings
+  route_name: fdt_mbkk.settings
   weight: 100

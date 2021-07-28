@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\file_download_tracker\Entity;
+namespace Drupal\fdt_mbkk\Entity;
 
 use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\Entity\RevisionableInterface;
@@ -10,7 +10,7 @@ use Drupal\user\EntityOwnerInterface;
 /**
  * Provides an interface for defining File download entity entities.
  *
- * @ingroup file_download_tracker
+ * @ingroup fdt_mbkk
  */
 interface FileDownloadEntityInterface extends RevisionableInterface, RevisionLogInterface, EntityChangedInterface, EntityOwnerInterface {
 
@@ -30,7 +30,7 @@ interface FileDownloadEntityInterface extends RevisionableInterface, RevisionLog
    * @param string $name
    *   The File download entity name.
    *
-   * @return \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface
+   * @return \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface
    *   The called File download entity entity.
    */
   public function setName($name);
@@ -49,7 +49,7 @@ interface FileDownloadEntityInterface extends RevisionableInterface, RevisionLog
    * @param int $timestamp
    *   The File download entity creation timestamp.
    *
-   * @return \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface
+   * @return \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface
    *   The called File download entity entity.
    */
   public function setCreatedTime($timestamp);
@@ -70,7 +70,7 @@ interface FileDownloadEntityInterface extends RevisionableInterface, RevisionLog
    * @param bool $published
    *   TRUE to set this File download entity to published, FALSE to set it to unpublished.
    *
-   * @return \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface
+   * @return \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface
    *   The called File download entity entity.
    */
   public function setPublished($published);
@@ -89,7 +89,7 @@ interface FileDownloadEntityInterface extends RevisionableInterface, RevisionLog
    * @param int $timestamp
    *   The UNIX timestamp of when this revision was created.
    *
-   * @return \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface
+   * @return \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface
    *   The called File download entity entity.
    */
   public function setRevisionCreationTime($timestamp);
@@ -108,7 +108,7 @@ interface FileDownloadEntityInterface extends RevisionableInterface, RevisionLog
    * @param int $uid
    *   The user ID of the revision author.
    *
-   * @return \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface
+   * @return \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface
    *   The called File download entity entity.
    */
   public function setRevisionUserId($uid);

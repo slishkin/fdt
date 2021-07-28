@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\file_download_tracker;
+namespace Drupal\fdt_mbkk;
 
 use Drupal\Core\Entity\ContentEntityStorageInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Language\LanguageInterface;
-use Drupal\file_download_tracker\Entity\FileDownloadEntityInterface;
+use Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface;
 
 /**
  * Defines the storage handler class for File download entity entities.
@@ -13,14 +13,14 @@ use Drupal\file_download_tracker\Entity\FileDownloadEntityInterface;
  * This extends the base storage class, adding required special handling for
  * File download entity entities.
  *
- * @ingroup file_download_tracker
+ * @ingroup fdt_mbkk
  */
 interface FileDownloadEntityStorageInterface extends ContentEntityStorageInterface {
 
   /**
    * Gets a list of File download entity revision IDs for a specific File download entity.
    *
-   * @param \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface $entity
+   * @param \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface $entity
    *   The File download entity entity.
    *
    * @return int[]
@@ -42,7 +42,7 @@ interface FileDownloadEntityStorageInterface extends ContentEntityStorageInterfa
   /**
    * Counts the number of revisions in the default language.
    *
-   * @param \Drupal\file_download_tracker\Entity\FileDownloadEntityInterface $entity
+   * @param \Drupal\fdt_mbkk\Entity\FileDownloadEntityInterface $entity
    *   The File download entity entity.
    *
    * @return int

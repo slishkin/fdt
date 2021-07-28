@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\file_download_tracker\Entity;
+namespace Drupal\fdt_mbkk\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -12,17 +12,17 @@ use Drupal\user\UserInterface;
 /**
  * Defines the File download entity entity.
  *
- * @ingroup file_download_tracker
+ * @ingroup fdt_mbkk
  *
  * @ContentEntityType(
  *   id = "file_download_entity",
  *   label = @Translation("File download entity"),
  *   handlers = {
- *     "storage" = "Drupal\file_download_tracker\FileDownloadEntityStorage",
+ *     "storage" = "Drupal\fdt_mbkk\FileDownloadEntityStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\file_download_tracker\FileDownloadEntityListBuilder",
- *     "views_data" = "Drupal\file_download_tracker\Entity\FileDownloadEntityViewsData",
- *     "translation" = "Drupal\file_download_tracker\FileDownloadEntityTranslationHandler",
+ *     "list_builder" = "Drupal\fdt_mbkk\FileDownloadEntityListBuilder",
+ *     "views_data" = "Drupal\fdt_mbkk\Entity\FileDownloadEntityViewsData",
+ *     "translation" = "Drupal\fdt_mbkk\FileDownloadEntityTranslationHandler",
  *   },
  *   file_download_permission = "access all reports",
  *   base_table = "file_download_entity",

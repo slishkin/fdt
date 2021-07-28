@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\file_download_tracker\Entity;
+namespace Drupal\fdt_mbkk\Entity;
 
 use Drupal\views\EntityViewsData;
 

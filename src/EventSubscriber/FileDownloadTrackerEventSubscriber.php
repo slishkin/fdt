@@ -1,19 +1,19 @@
 <?php
 /**
  * @file
- * Contains \Drupal\file_download_tracker\FileDownloadTrackerEventSubscriber.
+ * Contains \Drupal\fdt_mbkk\FileDownloadTrackerEventSubscriber.
  */
-namespace Drupal\file_download_tracker\EventSubscriber;
+namespace Drupal\fdt_mbkk\EventSubscriber;
 
-use Drupal\file_download_tracker\FileDownloadTracker;
+use Drupal\fdt_mbkk\FileDownloadTracker;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Drupal\file_download_tracker\Entity\FileDownloadEntity;
+use Drupal\fdt_mbkk\Entity\FileDownloadEntity;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class FileDownloadTrackerEventSubscriber.
  *
- * @package Drupal\file_download_tracker
+ * @package Drupal\fdt_mbkk
  */
 class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
   /**
@@ -45,8 +45,6 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
     $inside = 0;
     $outside = 1;
     if ($pattern = \Drupal::state()->get('mbkk_fdt_pattern', '')){
-      ksm($pattern);
-      ksm($ref);
       if (preg_match('/' . $pattern . '/', $ref)) {
         $inside = 1;
         $outside = 0;

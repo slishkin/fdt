@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\file_download_tracker;
+namespace Drupal\fdt_mbkk;
 
 use Drupal\content_translation\ContentTranslationHandler;
 

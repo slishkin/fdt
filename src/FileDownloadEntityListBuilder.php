@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\file_download_tracker;
+namespace Drupal\fdt_mbkk;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Defines a class to build a listing of File download entity entities.
  *
- * @ingroup file_download_tracker
+ * @ingroup fdt_mbkk
  */
 class FileDownloadEntityListBuilder extends EntityListBuilder {
 
@@ -29,7 +29,7 @@ class FileDownloadEntityListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\file_download_tracker\Entity\FileDownloadEntity */
+    /* @var $entity \Drupal\fdt_mbkk\Entity\FileDownloadEntity */
     $row['id'] = $entity->id();
     $row['name'] = $this->l(
       $entity->label(),

@@ -40,6 +40,7 @@ use Drupal\user\UserInterface;
  *     "status" = "status",
  *     "entity_type" = "entity_type",
  *     "entity_id" = "entity_id",
+ *     "source_id" = "source_id",
  *     "ip_address" = "ip_address",
  *     "referer" = "referer",
  *     "inside" = "inside",
@@ -236,6 +237,33 @@ class FileDownloadEntity extends RevisionableContentEntityBase implements FileDo
             ))
             ->setDisplayConfigurable('form', TRUE)
             ->setDisplayConfigurable('view', TRUE);
+
+
+      $fields['source_id'] = BaseFieldDefinition::create('entity_reference')
+        ->setLabel(t('Source Entity'))
+        ->setDescription(t('The entity ID of the page with file.'))
+        ->setRevisionable(TRUE)
+        ->setSetting('target_type', 'node')
+        ->setSetting('handler', 'default')
+        ->setTranslatable(TRUE)
+        ->setDisplayOptions('view', array(
+          'label' => 'hidden',
+          'type' => 'node',
+          'weight' => 0,
+        ))
+        ->setDisplayOptions('form', array(
+          'type' => 'entity_reference_autocomplete',
+          'weight' => 5,
+          'settings' => array(
+            'match_operator' => 'CONTAINS',
+            'size' => '60',
+            'autocomplete_type' => 'tags',
+            'placeholder' => '',
+          ),
+        ))
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
+
 
         $fields['name'] = BaseFieldDefinition::create('string')
             ->setLabel(t('Name'))

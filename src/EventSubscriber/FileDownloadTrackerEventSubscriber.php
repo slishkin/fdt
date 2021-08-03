@@ -61,14 +61,16 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
         if (preg_match('/' . $pattern . '/', $ref)) {
           $inside = 1;
           $outside = 0;
-          if ($pattern_second = \Drupal::state()->get('mbkk_fdt_pattern_second', '')){
-            if (preg_match('/' . $pattern_second . '/', $ref)) {
-              $inside = 0;
-              $inside_pub = 1;
-            }
+        }
+        if ($pattern_second = \Drupal::state()->get('mbkk_fdt_pattern_second', '')){
+          if (preg_match('/' . $pattern_second . '/', $ref)) {
+            $inside = 0;
+            $inside_pub = 1;
+            $outside = 0;
           }
         }
       }
+
       // Get the current user id
       $user_id = \Drupal::currentUser()->id();
       // To save entity for Page.

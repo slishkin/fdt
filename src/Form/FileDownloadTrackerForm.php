@@ -29,7 +29,7 @@ class FileDownloadTrackerForm extends ConfigFormBase
     }
     else{
       $host = \Drupal::request()->getHost();
-      $default_pattern = 'http[s?]:\/\/' . $host . '.*';
+      $default_pattern = 'https?:\/\/' . $host . '.*';
       \Drupal::state()->set('mbkk_fdt_pattern', $default_pattern);
     }
 

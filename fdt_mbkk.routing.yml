@@ -1,14 +1,14 @@
-fdt_mbkk.file_report:
-  path: '/file-download-tracker-file-report'
-  defaults:
-    _title: 'File Download Reports'
-  requirements:
-    _permission: 'access all reports'
+#fdt_mbkk.file_report:
+#  path: '/file-download-tracker-file-report'
+#  defaults:
+#    _title: 'File Download Reports'
+#  requirements:
+#    _permission: 'access all reports'
 
 fdt_mbkk.page_report:
   path: '/file-download-tracker-page-report'
   defaults:
-    _title: 'Page Download Reports'
+    _title: 'File Download Reports'
   requirements:
     _permission: 'access all reports'
 

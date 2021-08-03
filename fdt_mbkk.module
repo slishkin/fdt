@@ -5,6 +5,7 @@
  * Contains fdt_mbkk.module.
  */
 
+use Drupal\Core\Link;
 use Drupal\fdt_mbkk\FileDownloadTracker;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Database\Query;
@@ -65,3 +66,20 @@ function fdt_mbkk_file_download($uri) {
   $dispatcher->dispatch(FileDownloadTracker::SUBMIT, $event);
 }
 
+/**
+ * Implements hook_preprocess().
+ */
+function fdt_mbkk_preprocess_file_entity_download_link(&$variables){
+  $file = $variables['file'];
+  $item = $file->_referringItem;
+  $description = isset($item->description) ? $item->description : NULL;
+  if (empty($description)) {
+    $link_text = $file->getFilename();
+  }
+  else {
+    $link_text = $description;
+  }
+  $mime_type = $file->getMimeType();
+  $download_url = $file->downloadUrl(array('attributes' => array('type' => $mime_type . '; length=' . $file->getSize())));
+  $variables['download_link'] = Link::fromTextAndUrl($link_text, $download_url);
+}

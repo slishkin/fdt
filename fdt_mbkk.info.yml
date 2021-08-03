@@ -4,3 +4,4 @@ description: Tracking and generating reports for file downloads
 core: 8.x
 dependencies:
   - file_entity
+  - views_data_export

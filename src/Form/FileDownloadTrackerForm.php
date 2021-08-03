@@ -33,12 +33,27 @@ class FileDownloadTrackerForm extends ConfigFormBase
       \Drupal::state()->set('mbkk_fdt_pattern', $default_pattern);
     }
 
+    if (!empty($config->get('fdt_mbkk.pattern_second'))){
+      $default_pattern_second = $config->get('fdt_mbkk.pattern_second');
+    }
+    else{
+      $host = \Drupal::request()->getHost();
+      $default_pattern_second = 'https?:\/\/' . $host . '.*\/desa\/products\/publications.*';
+      \Drupal::state()->set('mbkk_fdt_pattern_second', $default_pattern_second);
+    }
+
     // Source text field.
     $form['pattern'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Inside Pattern for HTTP Referer'),
       '#default_value' => $default_pattern ,
       '#description' => $this->t('Specify regex line by line what counts as an internal download request.<br/>For example: http[s?]:\/\/sitename.*'),
+    ];
+    $form['pattern_second'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Inside Publication Pattern for HTTP Referer'),
+      '#default_value' => $default_pattern_second ,
+      '#description' => $this->t('Specify regex what counts as an internal download request from Publication.<br/>For example: http[s?]:\/\/sitename.*\/desa\/products\/publications.*'),
     ];
 
     return $form;
@@ -51,6 +66,8 @@ class FileDownloadTrackerForm extends ConfigFormBase
     $config = $this->config('fdt_mbkk.settings');
     $config->set('fdt_mbkk.pattern', $form_state->getValue('pattern'));
     \Drupal::state()->set('mbkk_fdt_pattern', $form_state->getValue('pattern'));
+    $config->set('fdt_mbkk.pattern_second', $form_state->getValue('pattern_second'));
+    \Drupal::state()->set('mbkk_fdt_pattern_second', $form_state->getValue('pattern_second'));
     $config->save();
     $this->messenger()->addStatus($this->t('Form settings have been saved'));
     return parent::submitForm($form, $form_state);

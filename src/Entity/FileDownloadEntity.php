@@ -44,6 +44,7 @@ use Drupal\user\UserInterface;
  *     "ip_address" = "ip_address",
  *     "referer" = "referer",
  *     "inside" = "inside",
+ *     "inside_pub" = "inside_pub",
  *     "outside" = "outside",
  *   },
  * )
@@ -358,6 +359,23 @@ class FileDownloadEntity extends RevisionableContentEntityBase implements FileDo
         $fields['inside'] = BaseFieldDefinition::create('integer')
             ->setLabel(t('Inside'))
             ->setDescription(t('Counter for internal requests'))
+            ->setSetting('unsigned', TRUE)
+            ->setDisplayOptions('view', array(
+              'label' => 'above',
+              'type' => 'integer',
+              'weight' => -2,
+            ))
+            ->setDisplayOptions('form', array(
+              'type' => 'integer',
+              'weight' => -2,
+            ))
+            ->setDisplayConfigurable('form', TRUE)
+            ->setDisplayConfigurable('view', TRUE);
+
+
+        $fields['inside_pub'] = BaseFieldDefinition::create('integer')
+            ->setLabel(t('Inside from Publication'))
+            ->setDescription(t('Counter for internal requests from Publication'))
             ->setSetting('unsigned', TRUE)
             ->setDisplayOptions('view', array(
               'label' => 'above',

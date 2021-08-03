@@ -50,16 +50,23 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
       $req = Request::create($ref)->getRequestUri();
       // Get the node id from path alias.
       $path = \Drupal::service('path.alias_manager')->getPathByAlias($req);
-      
+
       // To get the ip address of the system.
       $ip_address = \Drupal::request()->getClientIp();
       // Сheck the request is internal or external
       $inside = 0;
+      $inside_pub = 0;
       $outside = 1;
       if ($pattern = \Drupal::state()->get('mbkk_fdt_pattern', '')){
         if (preg_match('/' . $pattern . '/', $ref)) {
           $inside = 1;
           $outside = 0;
+          if ($pattern_second = \Drupal::state()->get('mbkk_fdt_pattern_second', '')){
+            if (preg_match('/' . $pattern_second . '/', $ref)) {
+              $inside = 0;
+              $inside_pub = 1;
+            }
+          }
         }
       }
       // Get the current user id
@@ -72,6 +79,7 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
         'ip_address' => $ip_address,
         'referer' => $ref,
         'inside' => $inside,
+        'inside_pub' => $inside_pub,
         'outside' => $outside,
         'user_id' => $user_id,
       ]);

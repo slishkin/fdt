@@ -1,10 +1,3 @@
-#fdt_mbkk.file_report:
-#  path: '/file-download-tracker-file-report'
-#  defaults:
-#    _title: 'File Download Reports'
-#  requirements:
-#    _permission: 'access all reports'
-
 fdt_mbkk.page_report:
   path: '/file-download-tracker-page-report'
   defaults:
@@ -19,3 +12,10 @@ fdt_mbkk.settings:
     _title: 'File Download Tracker Settings'
   requirements:
     _permission: 'administer file download tracker'
+
+fdt_mbkk.modal_form:
+  path: '/fdt/openform'
+  defaults:
+    _controller: '\Drupal\fdt_mbkk\Controller\FdtmbkkContoller::getContent'
+  requirements:
+    _permission: 'access content'

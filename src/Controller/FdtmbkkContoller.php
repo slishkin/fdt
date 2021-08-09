@@ -27,7 +27,7 @@ class FdtmbkkContoller extends ControllerBase {
     $content['#markup'] = $rendered;
     $content['#attached']['library'][] = 'core/drupal.dialog.ajax';
     $response = new AjaxResponse();
-    $response->addCommand(new OpenModalDialogCommand($title, $content, ['width' => '400', 'height' => '400']));
+    $response->addCommand(new OpenModalDialogCommand($title, $content, ['dialogClass' => 'remindme']));
     return $response;
   }
 

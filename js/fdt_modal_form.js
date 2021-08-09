@@ -4,7 +4,11 @@
 
   Drupal.behaviors.fdtModalForm = {
     attach: function (context, settings) {
-      // $('.pubfile a', context).click(function () {
+      $('.pubfile a', context).click(function () {
+        var endpoint = Drupal.url('fdt/openform');
+        Drupal.ajax({ url: endpoint }).execute();
+      });
+
       $(".footerleft a", context).click(function (e) {
         e.preventDefault();
         var endpoint = Drupal.url('fdt/openform');

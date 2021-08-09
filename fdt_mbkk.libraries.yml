@@ -1,0 +1,6 @@
+fdt_modal_form:
+  version: 1.x
+  js:
+    js/fdt_modal_form.js: {}
+  dependencies:
+    - core/drupal.dialog.ajax

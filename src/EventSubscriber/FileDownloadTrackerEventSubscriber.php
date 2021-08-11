@@ -5,6 +5,7 @@
  */
 namespace Drupal\fdt_mbkk\EventSubscriber;
 
+use Drupal\node\Entity\Node;
 use Drupal\fdt_mbkk\FileDownloadTracker;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\fdt_mbkk\Entity\FileDownloadEntity;
@@ -43,6 +44,13 @@ class FileDownloadTrackerEventSubscriber implements EventSubscriberInterface {
     $source_id = $query->execute()->fetchField();
 
     if (!empty($source_id)){
+      // Store Source_id into session variable
+      if ($node = Node::load($source_id)){
+        if ($tempstore = \Drupal::service('tempstore.private')->get('fdt_mbkk')){
+          $source_title = $tempstore->get('source_title');
+          $tempstore->set('source_title', $node->getTitle());
+        }
+      }
       // To get the node id from last URL.
       $ref = $_SERVER['HTTP_REFERER'];
       if (empty($ref)) $ref = 'undefinde';

@@ -29,6 +29,10 @@ function fdt_mbkk_help($route_name, RouteMatchInterface $route_match) {
 
 }
 
+function fdt_mbkk_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] =  'fdt_mbkk/fdt_modal_form';
+}
+
 /**
  * Implements hook_file_transfer().
  */
@@ -82,4 +86,28 @@ function fdt_mbkk_preprocess_file_entity_download_link(&$variables){
   $mime_type = $file->getMimeType();
   $download_url = $file->downloadUrl(array('attributes' => array('type' => $mime_type . '; length=' . $file->getSize())));
   $variables['download_link'] = Link::fromTextAndUrl($link_text, $download_url);
+  if ($bundle = $item->getEntity()->bundle()){
+    $variables['attributes']->addClass($bundle);
+  }
+}
+
+function fdt_mbkk_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'webform_submission_help_un_desa_add_form'){
+    if (isset($form['elements']['brief_text']['#text'])){
+      if ($tempstore = \Drupal::service('tempstore.private')->get('fdt_mbkk')){
+        if ($source_title = $tempstore->get('source_title')){
+          $form['elements']['brief_text']['#text'] = str_replace('Thank you for downloading.', 'Thank you for downloading ' . $source_title . '.', $form['elements']['brief_text']['#text']);
+        }
+      }
+    }
+  }
+  if ($form_id == 'webform_submission_un_desa_publication_download_sur_add_form'){
+    if (isset($form['elements']['publication_name'])){
+      if ($tempstore = \Drupal::service('tempstore.private')->get('fdt_mbkk')) {
+        if ($source_title = $tempstore->get('source_title')) {
+          $form['elements']['publication_name']['#default_value'] = $source_title;
+        }
+      }
+    }
+  }
 }
